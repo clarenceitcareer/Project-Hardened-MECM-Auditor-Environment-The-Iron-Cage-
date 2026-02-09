@@ -16,3 +16,11 @@ Disaster Recovery & Troubleshooting
 Resolved a global GPO lockout by utilizing the Azure Run Command and secedit to force a local security database reset.
 
 Troubleshot WMI/SMS Provider connection errors by aligning local Remote Desktop Users groups with Domain-level permissions.
+
+Project Architecture
+
+Cloud Layer: Azure Virtual Network (VNet) secured by an NSG restricted to a single Administrative Source IP.
+
+Identity Layer: DC01 provides Active Directory Domain Services and centralizes "Iron Cage" GPO enforcement.
+
+Application Layer: CM01 hosts the MECM Primary Site and SQL Server backend.
